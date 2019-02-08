@@ -2,15 +2,23 @@
 
 namespace Laravel\Cashier;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Customer extends Model
+class Customer
 {
     /**
      *
      */
-    public static function test()
+    public static function create($params = null)
     {
-        dd(1);
+        $request = new Request();
+        return $request->post('/api/v1/customers', $params);
+    }
+
+    /**
+     *
+     */
+    public static function linkPaymentMethod($params)
+    {
+        $request = new Request();
+        return $request->post('/api/v1/customers/link-payment-method', $params);
     }
 }
