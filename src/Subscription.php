@@ -7,7 +7,6 @@ use Carbon\Carbon;
 use LogicException;
 use InvalidArgumentException;
 use Illuminate\Database\Eloquent\Model;
-use Braintree\Subscription as BraintreeSubscription;
 
 class Subscription extends Model
 {
@@ -113,7 +112,8 @@ class Subscription extends Model
                                 ->skipTrial()->create();
         }
 
-        $plan = BraintreeService::findPlan($plan);
+        // $plan = BraintreeService::findPlan($plan);
+        $plan = null;
 
         if ($this->wouldChangeBillingFrequency($plan)) {
             return $this->swapAcrossFrequencies($plan);
@@ -152,8 +152,8 @@ class Subscription extends Model
      */
     protected function wouldChangeBillingFrequency($plan)
     {
-        return $plan->billingFrequency !==
-           BraintreeService::findPlan($this->braintree_plan)->billingFrequency;
+        $plan = null;
+        return $plan->billingFrequency !== $plan->billingFrequency;
     }
 
     /**
@@ -164,7 +164,9 @@ class Subscription extends Model
      */
     protected function swapAcrossFrequencies($plan)
     {
-        $currentPlan = BraintreeService::findPlan($this->braintree_plan);
+        // $currentPlan = BraintreeService::findPlan($this->braintree_plan);
+
+        $currentPlan = null;
 
         $discount = $this->switchingToMonthlyPlan($currentPlan, $plan)
                                 ? $this->getDiscountForSwitchToMonthly($currentPlan, $plan)
