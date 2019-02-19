@@ -44,7 +44,7 @@ class WebhookController extends Controller
 
         if (hash_equals($originalHash, $calculatedHash)) {
             // hashes matched, process data
-            return (object) $request->all();
+            return  json_decode(json_encode($request->all()));
         } else {
             throw new Exception('Hash did not match');
         }
