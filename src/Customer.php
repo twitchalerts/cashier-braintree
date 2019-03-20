@@ -21,4 +21,13 @@ class Customer
         $request = new Request();
         return $request->post('/api/v1/customers/link-payment-method', $params);
     }
+
+    /**
+     *
+     */
+    public static function search($params)
+    {
+        $request = new Request();
+        return $request->get('/api/v1/customers/search', $params);
+    }
 }
