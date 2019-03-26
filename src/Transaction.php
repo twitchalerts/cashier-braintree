@@ -28,6 +28,6 @@ class Transaction
     public static function search($params)
     {
         $request = new Request();
-        return $request->get('/api/v1/customers/search', $params);
+        return $request->get('/api/v1/transactions/search', $params);
     }
 }
