@@ -30,7 +30,9 @@ class Request
         // make request
         try {
             if ($type === 'GET') {
-                $res = $this->client->request($type, $endPoint);
+                $res = $this->client->request($type, $endPoint, [
+                    'query' => $params,
+                ]);
             } else {
                 $res = $this->client->request($type, $endPoint, [
                     'json' => $params

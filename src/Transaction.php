@@ -21,4 +21,13 @@ class Transaction
         $request = new Request();
         return $request->post('/api/v1/transactions/charge', $params);
     }
+
+    /**
+     *
+     */
+    public static function search($params)
+    {
+        $request = new Request();
+        return $request->get('/api/v1/customers/search', $params);
+    }
 }
