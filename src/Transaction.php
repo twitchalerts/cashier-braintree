@@ -30,4 +30,13 @@ class Transaction
         $request = new Request();
         return $request->get('/api/v1/transactions/search', $params);
     }
+
+    /**
+     *
+     */
+    public static function get($params)
+    {
+        $request = new Request();
+        return $request->get('/api/v1/transactions/' . $params['transaction_id']);
+    }
 }
