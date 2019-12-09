@@ -42,7 +42,7 @@ class Request
             $res = json_decode($res->getBody());
             return $res;
         } catch (\Exception $e) {
-            dd($e);
+            // 
         }
     }
 

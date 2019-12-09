@@ -10,7 +10,7 @@ class Transaction
     public static function refund($params)
     {
         $request = new Request();
-        return $request->post('/api/v1/transactions/' . $params['transaction_id'] . '/refund');
+        return $request->post('/api/v1/transactions/' . $params['transaction_id'] . '/refund', $params);
     }
 
     /**
