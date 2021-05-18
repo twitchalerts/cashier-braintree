@@ -30,4 +30,13 @@ class Customer
         $request = new Request();
         return $request->get('/api/v1/customers/search', $params);
     }
+
+    /**
+     *
+     */
+    public static function cancelAllActiveSubscriptions($params)
+    {
+        $request = new Request();
+        return $request->post('/api/v1/customers/' . $params['customer_id'] . '/cancel-all-active-subs');
+    }
 }
